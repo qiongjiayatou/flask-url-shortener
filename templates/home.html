@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <h1 class="text-3xl font-bold text-center mt-10">URL Shortener</h1>
+    <div class="flex justify-center mt-5">
+        <form method="post" class="bg-white p-6 rounded-lg shadow-md">
+            <input type="text" name="url" placeholder="Enter URL to shorten" class="border border-gray-300 p-2 rounded-lg w-64">
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg ml-2 hover:bg-blue-600">Shorten</button>
+        </form>
+    </div>
+    {% if short_url %}
+        <p class="text-center mt-5">Shortened URL: <a href="{{ url_for('redirect_to_url', short_url=short_url) }}" class="text-blue-500 underline">{{ request.host_url }}{{ short_url }}</a></p>
+    {% endif %}
+</body>
+</html>
