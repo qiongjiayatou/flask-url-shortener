@@ -16,18 +16,17 @@ docker-compose up --build
 ```
 
 ### Initialize the Database
+Run migrations:
 ```sh
-docker-compose exec web flask shell 
-```
-
-Inside the Flask shell, run:
-```sh
-from app import db
-db.create_all()
-exit()
+docker-compose exec web flask db upgrade
 ```
 
 ### Open the browser and navigate to 
 ```sh
 http://localhost:5000
+```
+
+### Access the Flask Shell
+```sh
+docker-compose exec web flask shell 
 ```
